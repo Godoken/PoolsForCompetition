@@ -1,7 +1,8 @@
-package com.example.poolsforcompetition
+package com.example.poolsforcompetition.features.welcome
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.poolsforcompetition.R
 
 class MainActivity : AppCompatActivity() {
 
