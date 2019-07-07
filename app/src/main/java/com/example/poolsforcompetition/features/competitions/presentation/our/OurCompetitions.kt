@@ -19,7 +19,8 @@ import com.example.poolsforcompetition.features.competitions.domain.model.Compet
  */
 class OurCompetitions : Fragment() {
 
-    lateinit var competitionList: List<Competition>
+    //lateinit var competitionList: List<Competition>
+    var competitionList: List<Competition> = ArrayList()
 
     // TODO: Customize parameters
     private var columnCount = 1

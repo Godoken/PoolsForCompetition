@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/main_graph"
+            app:startDestination="@id/loginFragment">
+
+    <fragment android:id="@+id/loginFragment"
+              android:name="com.example.poolsforcompetition.features.welcome.presentation.login.LoginFragment"
+              android:label="login_fragment" tools:layout="@layout/login_fragment">
+        <action android:id="@+id/action_loginFragment_to_registrationFragment"
+                app:destination="@+id/registrationFragment" app:launchSingleTop="true"/>
+        <action android:id="@+id/action_loginFragment_to_ourCompetitions" app:destination="@+id/ourCompetitions"
+                app:launchSingleTop="true"/>
+    </fragment>
+    <fragment android:id="@+id/registrationFragment"
+              android:name="com.example.poolsforcompetition.features.welcome.presentation.registration.RegistrationFragment"
+              android:label="registration_fragment" tools:layout="@layout/registration_fragment">
+        <action android:id="@+id/action_registrationFragment_to_allCompetitions" app:destination="@id/allCompetitions"/>
+    </fragment>
+    <fragment android:id="@+id/ourCompetitions"
+              android:name="com.example.poolsforcompetition.features.competitions.presentation.our.OurCompetitions"
+              android:label="fragment_competition_list_our" tools:layout="@layout/fragment_competition_list_our">
+        <action android:id="@+id/action_ourCompetitions_to_allCompetitions" app:destination="@id/allCompetitions"/>
+    </fragment>
+    <fragment android:id="@+id/allCompetitions"
+              android:name="com.example.poolsforcompetition.features.competitions.presentation.all.AllCompetitions"
+              android:label="fragment_competition_list_all" tools:layout="@layout/fragment_competition_list_all"/>
+</navigation>
