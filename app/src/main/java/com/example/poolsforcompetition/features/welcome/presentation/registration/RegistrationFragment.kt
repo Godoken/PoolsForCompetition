@@ -1,24 +1,29 @@
 package com.example.poolsforcompetition.features.welcome.presentation.registration
 
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModelProviders
 import com.example.poolsforcompetition.R
-import com.example.poolsforcompetition.features.welcome.ViewModel
+import kotlinx.android.synthetic.main.registration_fragment.view.*
 
 class RegistrationFragment : Fragment() {
 
-    private lateinit var viewModel: ViewModel
+    private lateinit var viewModel: RegistrationViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewModel = ViewModelProviders.of(activity!!).get(ViewModel::class.java)
-        return inflater.inflate(R.layout.registration_fragment, container, false)
+
+        val view: View = inflater.inflate(R.layout.registration_fragment, container, false)
+
+        viewModel = ViewModelProviders.of(activity!!).get(RegistrationViewModel::class.java)
+        view.button_registration_ok.setOnClickListener {
+            viewModel.onRegistrationFragmentEnterClick()
+        }
+        return view
     }
 }

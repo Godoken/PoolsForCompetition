@@ -1,18 +1,26 @@
 package com.example.poolsforcompetition.features.welcome
 
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.navigation.NavController
+import com.example.poolsforcompetition.R
 
 class ViewModel : ViewModel() {
 
-    var liveClickEnter: MutableLiveData<Boolean> = MutableLiveData()
-    var liveClickRegistration: MutableLiveData<Boolean> = MutableLiveData()
-
-    fun onEnterClick(login: String, password: String) {
-        liveClickEnter.value = true
+    fun navigateToOurCompetition(navigator: NavController, value: Boolean) {
+        if (value) {
+            navigator.navigate(R.id.ourCompetitions)
+        }
     }
 
-    fun onRegistrationClick() {
-        liveClickRegistration.value = true
+    fun navigateToRegistrationFragment(navigator: NavController, value: Boolean) {
+        if (value) {
+            navigator.navigate(R.id.registrationFragment)
+        }
+    }
+
+    fun navigateToAllCompetition(navigator: NavController, value: Boolean) {
+        if (value) {
+            navigator.navigate(R.id.allCompetitions)
+        }
     }
 }

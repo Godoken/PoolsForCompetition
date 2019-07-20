@@ -2,29 +2,25 @@ package com.example.poolsforcompetition.features.competitions.presentation.all
 
 import android.content.Context
 import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.example.poolsforcompetition.R
 import com.example.poolsforcompetition.features.competitions.domain.model.Competition
 
-/**
- * A fragment representing a list of Items.
- * Activities containing this fragment MUST implement the
- * [AllCompetitions.OnListFragmentInteractionListener] interface.
- */
 class AllCompetitions : Fragment() {
 
-    lateinit var competitionList: List<Competition>
+    //lateinit var competitionList: List<Competition>
+    private var competitionList: List<Competition> = ArrayList()
 
     // TODO: Customize parameters
     private var columnCount = 1
 
-    private var listener: OnListFragmentInteractionListener? = null
+    private var listener: AllCompetitionOnClick? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -55,7 +51,7 @@ class AllCompetitions : Fragment() {
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        if (context is OnListFragmentInteractionListener) {
+        if (context is AllCompetitionOnClick) {
             listener = context
         } else {
             throw RuntimeException(context.toString() + " must implement OnListFragmentInteractionListener")
@@ -78,9 +74,9 @@ class AllCompetitions : Fragment() {
      * [Communicating with Other Fragments](http://developer.android.com/training/basics/fragments/communicating.html)
      * for more information.
      */
-    interface OnListFragmentInteractionListener {
+    interface AllCompetitionOnClick {
         // TODO: Update argument type and name
-        fun onListFragmentInteraction(item: Competition?)
+        fun allCompetitionOnClick(item: Competition?)
     }
 
     /*

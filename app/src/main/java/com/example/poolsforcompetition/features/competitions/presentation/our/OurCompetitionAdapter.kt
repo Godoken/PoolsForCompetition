@@ -1,15 +1,12 @@
 package com.example.poolsforcompetition.features.competitions.presentation.our
 
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.example.poolsforcompetition.R
 import com.example.poolsforcompetition.features.competitions.domain.model.Competition
-
-
-import com.example.poolsforcompetition.features.competitions.presentation.our.OurCompetitions.OnListFragmentInteractionListener
 import kotlinx.android.synthetic.main.fragment_competition_our.view.*
 
 /**
@@ -19,7 +16,7 @@ import kotlinx.android.synthetic.main.fragment_competition_our.view.*
  */
 class OurCompetitionAdapter(
     private val mValues: List<Competition>,
-    private val mListener: OnListFragmentInteractionListener?
+    private val mListener: OurCompetitions.OurCompetitionOnClick?
 ) : RecyclerView.Adapter<OurCompetitionAdapter.ViewHolder>() {
 
     private val mOnClickListener: View.OnClickListener
@@ -29,7 +26,7 @@ class OurCompetitionAdapter(
             val item = v.tag as Competition
             // Notify the active callbacks interface (the activity, if the fragment is attached to
             // one) that an item has been selected.
-            mListener?.onListFragmentInteraction(item)
+            mListener?.ourCompetitionOnClick(item)
         }
     }
 

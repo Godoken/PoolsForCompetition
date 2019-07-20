@@ -12,10 +12,14 @@
         <action android:id="@+id/action_loginFragment_to_ourCompetitions" app:destination="@+id/ourCompetitions"
                 app:launchSingleTop="true"/>
     </fragment>
-    <fragment android:id="@+id/registrationFragment"
-              android:name="com.example.poolsforcompetition.features.welcome.presentation.registration.RegistrationFragment"
-              android:label="registration_fragment" tools:layout="@layout/registration_fragment">
-        <action android:id="@+id/action_registrationFragment_to_allCompetitions" app:destination="@id/allCompetitions"/>
+    <fragment
+        android:id="@+id/registrationFragment"
+        android:name="com.example.poolsforcompetition.features.welcome.presentation.registration.RegistrationFragment"
+        android:label="registration_fragment"
+        tools:layout="@layout/registration_fragment">
+        <action
+            android:id="@+id/action_registrationFragment_to_allCompetitions"
+            app:destination="@id/allCompetitions" />
     </fragment>
     <fragment android:id="@+id/ourCompetitions"
               android:name="com.example.poolsforcompetition.features.competitions.presentation.our.OurCompetitions"
