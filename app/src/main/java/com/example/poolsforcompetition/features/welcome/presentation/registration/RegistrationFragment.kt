@@ -22,7 +22,7 @@ class RegistrationFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(activity!!).get(RegistrationViewModel::class.java)
         view.button_registration_ok.setOnClickListener {
-            viewModel.onRegistrationFragmentEnterClick()
+            viewModel.onRegistrationFragmentEnterClick("Все мероприятия")
         }
         return view
     }

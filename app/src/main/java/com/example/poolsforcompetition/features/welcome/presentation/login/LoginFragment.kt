@@ -23,10 +23,10 @@ class LoginFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(activity!!).get(LoginViewModel::class.java)
         view.enter_button.setOnClickListener {
-            viewModel.onLoginFragmentEnterClick(login_text.text.toString(), password_text.text.toString())
+            viewModel.onLoginFragmentEnterClick(login_text.text.toString(), password_text.text.toString(), "Ваши мероприятия")
         }
         view.registration_button.setOnClickListener {
-            viewModel.onLoginFragmentRegistrationClick()
+            viewModel.onLoginFragmentRegistrationClick("Регистрация")
         }
         return view
     }

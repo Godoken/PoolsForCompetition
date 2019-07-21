@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".application.MainActivity">
+
+    <item
+        android:id="@+id/action_our_competitions"
+        android:orderInCategory="100"
+        android:title="Ваши мероприятия"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_all_competitions"
+        android:orderInCategory="100"
+        android:title="Все мероприятия"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_app_settings"
+        android:orderInCategory="100"
+        android:title="Настройки"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_exist"
+        android:orderInCategory="100"
+        android:title="Выход"
+        app:showAsAction="never"/>
+</menu>

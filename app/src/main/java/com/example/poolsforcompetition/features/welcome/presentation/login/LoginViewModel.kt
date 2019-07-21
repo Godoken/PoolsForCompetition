@@ -5,15 +5,15 @@ import androidx.lifecycle.ViewModel
 
 class LoginViewModel : ViewModel() {
 
-    var loginFragmentEnter: MutableLiveData<Boolean> = MutableLiveData()
-    var loginFragmentRegistration: MutableLiveData<Boolean> = MutableLiveData()
+    var loginFragmentEnter: MutableLiveData<String> = MutableLiveData()
+    var loginFragmentRegistration: MutableLiveData<String> = MutableLiveData()
 
-    fun onLoginFragmentEnterClick(login: String, password: String) {
-        loginFragmentEnter.value = true
+    fun onLoginFragmentEnterClick(login: String, password: String, title: String) {
+        loginFragmentEnter.value = title
     }
 
-    fun onLoginFragmentRegistrationClick() {
-        loginFragmentRegistration.value = true
+    fun onLoginFragmentRegistrationClick(title: String) {
+        loginFragmentRegistration.value = title
     }
 
 }

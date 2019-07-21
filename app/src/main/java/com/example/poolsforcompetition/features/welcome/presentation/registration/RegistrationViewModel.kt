@@ -5,9 +5,9 @@ import androidx.lifecycle.ViewModel
 
 class RegistrationViewModel : ViewModel() {
 
-    var registrationFragmentEnter: MutableLiveData<Boolean> = MutableLiveData()
+    var registrationFragmentEnter: MutableLiveData<String> = MutableLiveData()
 
-    fun onRegistrationFragmentEnterClick() {
-        registrationFragmentEnter.value = true
+    fun onRegistrationFragmentEnterClick(title: String) {
+        registrationFragmentEnter.value = title
     }
 }

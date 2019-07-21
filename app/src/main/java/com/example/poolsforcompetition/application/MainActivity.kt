@@ -1,6 +1,8 @@
-package com.example.poolsforcompetition.features.welcome
+package com.example.poolsforcompetition.application
 
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -28,6 +30,8 @@ class MainActivity : AppCompatActivity(), InterfaceView, OurCompetitions.OurComp
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        setSupportActionBar(toolbar)
+
         viewModel = ViewModelProviders.of(this).get(ViewModel::class.java)
         loginViewModel = ViewModelProviders.of(this).get(LoginViewModel::class.java)
         registrationViewModel = ViewModelProviders.of(this).get(RegistrationViewModel::class.java)
@@ -35,16 +39,29 @@ class MainActivity : AppCompatActivity(), InterfaceView, OurCompetitions.OurComp
         navigator = Navigation.findNavController(this, R.id.fragment)
 
         loginViewModel.loginFragmentEnter.observe(this, Observer {
-            viewModel.navigateToOurCompetition(navigator, loginViewModel.loginFragmentEnter.value!!)
+            showToolbar(it)
+            viewModel.navigateToOurCompetition(navigator)
         })
 
         loginViewModel.loginFragmentRegistration.observe(this, Observer {
-            viewModel.navigateToRegistrationFragment(navigator, loginViewModel.loginFragmentRegistration.value!!)
+            viewModel.navigateToRegistrationFragment(navigator)
         })
 
         registrationViewModel.registrationFragmentEnter.observe(this,  Observer {
-            viewModel.navigateToAllCompetition(navigator, registrationViewModel.registrationFragmentEnter.value!!)
+            showToolbar(it)
+            viewModel.navigateToAllCompetition(navigator)
         })
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.app_menu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        showToolbar(item.title.toString())
+        viewModel.onOptionsItemSelected(item.itemId, navigator)
+        return super.onOptionsItemSelected(item)
     }
 
     override fun ourCompetitionOnClick(item: Competition) {
@@ -66,5 +83,14 @@ class MainActivity : AppCompatActivity(), InterfaceView, OurCompetitions.OurComp
     override fun showError(textError: String) {
         val toast: Toast = Toast.makeText(this, textError, Toast.LENGTH_LONG)
         toast.show()
+    }
+
+    override fun showToolbar(title: String) {
+        toolbar.title = title
+        toolbar.visibility = View.VISIBLE
+    }
+
+    override fun hideToolbar() {
+        toolbar.visibility = View.GONE
     }
 }

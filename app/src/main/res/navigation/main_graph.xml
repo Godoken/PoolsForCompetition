@@ -28,5 +28,9 @@
     </fragment>
     <fragment android:id="@+id/allCompetitions"
               android:name="com.example.poolsforcompetition.features.competitions.presentation.all.AllCompetitions"
-              android:label="fragment_competition_list_all" tools:layout="@layout/fragment_competition_list_all"/>
+              android:label="fragment_competition_list_all" tools:layout="@layout/fragment_competition_list_all">
+        <action
+            android:id="@+id/action_allCompetitions_to_ourCompetitions"
+            app:destination="@id/ourCompetitions" />
+    </fragment>
 </navigation>
